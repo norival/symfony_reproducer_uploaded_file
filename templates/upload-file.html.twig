@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if app.request.method == 'GET' %}
+    <h1>Upload a file</h1>
+
+    <p>File size must be between {{ maxFileSize }} and {{ postMaxSize }}.</p>
+
+    <form enctype="multipart/form-data" method="POST" name="file-form">
+        <input type="file" name="file">
+        <button type="submit">Submit</button>
+    </form>
+{% else %}
+    <h1>Result</h1>
+
+    <p>The value of getRealPath is: <b>{{ realPath }}</b></p>
+{% endif %}
+
+{% endblock %}
